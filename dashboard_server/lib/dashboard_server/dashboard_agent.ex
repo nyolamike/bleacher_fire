@@ -50,6 +50,21 @@ defmodule DashboardServer.DashboardAgent do
     end)
   end
 
+  @doc """
+  Decreament the count of a reaction content by  `content_id`
+  """
+  def decreament(agent_process, content_id) do
+    Agent.update(agent_process, fn register ->
+        #check if this content already has a reaction entry here
+        if Map.has_key?(register, content_id) do
+            %{ register | content_id => (if register[content_id] == 0, do: 0, else: register[content_id] - 1) } 
+        else
+            #we add a new one here
+            Map.put(register, content_id, 0)
+        end
+    end)
+  end
+
   
 
 end
