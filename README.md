@@ -3,33 +3,46 @@ A phoenix-based microservice that maintains an in-memory cache of users who have
 
 # Assumptions
 The demo application has been split into a web phoenix app and three micoservices  
-The architecture is only to demostrate the SOLID principle of microservices, that is   
-to break apart business logic into single responsiblity tasks.  
+The architecture is only to demostrate the SOLID principle of microservices, that is to break apart business logic into single responsiblity tasks.  
 We have the following taks to accomplish  
     1. A web interface to display data and capture user interactions (Phoenix Web App)  
-    2. A services to store in mememory user reactions to bleacher content 
-    3. A dashboard service to keep count/Statistics of the reactions 
+    2. A services to store in mememory user reactions to bleacher content
+    3. A dashboard service to keep count/Statistics of the reactions  
     4. A user bound service to keep track of users and their reactions 
 
-There is a one way data flow so that operations on data have to be from one source of truth.
-That is:
+There is a one way data flow so that operations on data have to be from one source of truth.  
+That is:  
     * on create:   ` web -> bleacher_server -> [dasboard_server, user_server] `  
     * on delete:   ` web -> bleacher_server -> [dasboard_server, user_server] `  
     * on count:    ` web -> dasboard_server `  
     * on users reactions: ` web -> user_server `  
+This coupled with data indexing also ensures atomic operations on the data  
+
+
+
+# Tests
+The approach was to use a test driven developement approach to guide the developement to have  
+some degree of confidence and to reason about the quality of the code but also to set a stage  
+for setting up a CI/CD in future.
+Most of the tests are for the micoservices 
+---nyd todo describe how to run the tests 
 
 
 # Folder/Directoy Structure
-**bleacher_fire:** 
-    is the phoenix mvc web application that the user interacts with
-**bleacher_server**
+**bleacher_fire:**   
+    is the phoenix mvc web application that the user interacts with  
+**bleacher_server**  
     This is a services that is going to store and also delete reactions from users
     That is the only purpose of this service
-    Internally it uses the Agent API to have in memory cache of a map of reactions
-    Ractions are stores as a key-value pair map, where 
-        the key is that content_id 
-        the value is also a map where the key is the user_id and the value is the reaction map 
-    Indexing data like this makes reads and writes very straight forward and very fast.
+    Internally it uses the Agent API to have in memory cache of a map of reactions  
+    Ractions are stores as a key-value pair map, where  
+        the key is that content_id   
+        the value is also a map where the key is the user_id and the value is the reaction map   
+    Indexing data like this makes reads and writes very straight forward and very fast.  
+**users_server**  
+    This is a service to truck users and their reactions, just the content id  
+    To keep unique reactions, this service will first be called to check if a user  
+    has already reacted to the content  
 
 
 
