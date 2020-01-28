@@ -40,4 +40,19 @@ defmodule ReactionsServer.ReactionsAgent do
     end)
   end
 
+  @doc """
+  Removes a users reaction 
+  """
+  def remove(agent_process, reaction) do
+    Agent.update(agent_process, fn reactions ->
+        #check if this content already has a reaction here
+        if Map.has_key?(reactions, reaction.content_id) do
+            #the user service will already provide prove that this user has this reaction
+            %{ reactions | reaction.content_id => Map.delete(reactions[reaction.content_id], reaction.user_id) }
+        else
+            reactions
+        end
+    end)
+  end
+
 end
