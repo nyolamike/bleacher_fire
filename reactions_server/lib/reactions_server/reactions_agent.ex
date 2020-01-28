@@ -16,6 +16,13 @@ defmodule ReactionsServer.ReactionsAgent do
   end
 
   @doc """
+  A helper function to get the state of the store
+  """
+  def get_state(agent_process) do
+    Agent.get(agent_process, &(&1))
+  end
+
+  @doc """
   Stores a users `reaction` to a given content by  `content_id` and `user_id` in the reactions.
   """
   def put(agent_process, content_id, reaction) do
@@ -25,7 +32,7 @@ defmodule ReactionsServer.ReactionsAgent do
             #to ensure that only unique reactions are stored, 
             #the user service is first called
             #so we dont need to check here
-            Map.put(reactions[content_id], reaction.user_id, reaction)
+            %{ reactions | content_id =>  Map.put(reactions[content_id], reaction.user_id, reaction) }
         else
             #we add a new one hear
             Map.put(reactions, content_id, %{ reaction.user_id => reaction })
