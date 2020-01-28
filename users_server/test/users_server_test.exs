@@ -67,5 +67,27 @@ defmodule UsersServerTest do
   
   end
 
+  test "Check if a user has a reaction to a content" do
+    request_pay_load = %{
+      content_id: "056af828-2efe-4631-8446-c52cabb67367",
+      user_id: "9e204fff-9b48-4000-8b21-6cc88be2f01e"
+    }
+    {:ok, agent_process} = UsersServer.UsersAgent.start_link(%{})
+    assert UsersServer.UsersAgent.has_reaction(agent_process, request_pay_load.user_id) == false
+
+    UsersServer.UsersAgent.put(agent_process, request_pay_load.user_id, request_pay_load.content_id)
+    assert UsersServer.UsersAgent.has_reaction(agent_process, request_pay_load.user_id,  request_pay_load.content_id)  ==  true
+
+    #add another comment reaction
+    request_pay_load_2 = %{
+      content_id: "056af828-2efe-4631-8446-c52cabb67368",
+      user_id: "9e204fff-9b48-4000-8b21-6cc88be2f01e"
+    }
+    assert UsersServer.UsersAgent.has_reaction(agent_process, request_pay_load_2.user_id, request_pay_load_2.content_id) ==  false
+  
+  end
+
+  
+
 
 end
