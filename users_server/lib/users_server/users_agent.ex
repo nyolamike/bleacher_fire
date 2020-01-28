@@ -40,4 +40,22 @@ defmodule UsersServer.UsersAgent do
     end)
   end
 
+  @doc """
+  Removes a users reaction 
+  """
+  def remove(agent_process, user_id, content_id) do
+    Agent.update(agent_process, fn reactions ->
+        #check if this content already has a reaction here
+        if Map.has_key?(reactions, user_id ) == false do
+            reactions
+        else
+            if content_id in reactions[user_id] == false do
+                reactions #if we already have it then we just return our state
+            else
+                %{ reactions | user_id => List.delete(reactions[user_id], content_id)}
+            end
+        end 
+    end)
+  end
+
 end
