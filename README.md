@@ -26,7 +26,7 @@ some degree of confidence and to reason about the quality of the code but also t
 for setting up a CI/CD in future.  
 Most of the tests are for the micoservices  
 To run test for the **bleacher_server** service  
-`cd bleacher_server `
+`cd bleacher_server `  
 `mix test`  
 
 
@@ -40,7 +40,11 @@ To run test for the **bleacher_server** service
     Ractions are stores as a key-value pair map, where  
         the key is that content_id   
         the value is also a map where the key is the user_id and the value is the reaction map   
-    Indexing data like this makes reads and writes very straight forward and very fast.  
+    Indexing data like this makes reads and writes very straight forward and very fast.   
+**dashboard_server**    
+    This is a service to truck application statistics like the count of reactions of a content  
+    This could have been done in the bleacher_server service but we want to demostrate role distrbution  
+    Besides having the  bleacher_server keep statistics and reports would increase latency  
 **users_server**  
     This is a service to truck users and their reactions, just the content id  
     To keep unique reactions, this service will first be called to check if a user  
