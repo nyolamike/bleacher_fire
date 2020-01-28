@@ -4,8 +4,8 @@ defmodule DashboardServer.DashboardAgent do
   @doc """
   Starts a new agent process to store user content reactions.
   """
-  def start_link(_opts) do
-    Agent.start_link(fn -> %{} end)
+  def start_link(nm) do
+    Agent.start_link(fn -> %{} end, name: nm )
   end
 
   @doc """

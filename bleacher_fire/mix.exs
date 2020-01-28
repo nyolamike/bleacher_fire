@@ -19,7 +19,7 @@ defmodule BleacherFire.MixProject do
   def application do
     [
       mod: {BleacherFire.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :reactions_server],
     ]
   end
 
@@ -38,7 +38,8 @@ defmodule BleacherFire.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:reactions_server, path: "../reactions_server", env: Mix.env}
     ]
   end
 end

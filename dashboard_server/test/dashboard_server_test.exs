@@ -4,7 +4,7 @@ defmodule DashboardServerTest do
 
   test "Increments count for a particular content_id " do
     content_id =  "056af828-2efe-4631-8446-c52cabb67367"
-    {:ok, agent_process} = DashboardServer.DashboardAgent.start_link(%{})
+    {:ok, agent_process} = DashboardServer.DashboardAgent.start_link(:dashboard_agent)
     empty_value = %{ content_id: content_id, reaction_count: %{ fire: 0}  }
     assert DashboardServer.DashboardAgent.get(agent_process, content_id) == empty_value
 
@@ -24,7 +24,7 @@ defmodule DashboardServerTest do
 
   test "Decremants count for a particular content_id " do
     content_id =  "056af828-2efe-4631-8446-c52cabb67367"
-    {:ok, agent_process} = DashboardServer.DashboardAgent.start_link(%{})
+    {:ok, agent_process} = DashboardServer.DashboardAgent.start_link(:dashboard_agent)
     empty_value = %{ content_id: content_id, reaction_count: %{ fire: 0}  }
     assert DashboardServer.DashboardAgent.get(agent_process, content_id) == empty_value
 

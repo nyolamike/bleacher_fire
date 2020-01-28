@@ -10,7 +10,7 @@ defmodule ReactionsServerTest do
       user_id: "9e204fff-9b48-4000-8b21-6cc88be2f01e",
       reaction_type: "fire"
     }
-    {:ok, agent_process} = ReactionsServer.ReactionsAgent.start_link(%{})
+    {:ok, agent_process} = ReactionsServer.ReactionsAgent.start_link(:reactions_agent)
     assert ReactionsServer.ReactionsAgent.get(agent_process, request_pay_load.content_id) == nil
 
     ReactionsServer.ReactionsAgent.put(agent_process, request_pay_load.content_id, request_pay_load)
@@ -40,7 +40,7 @@ defmodule ReactionsServerTest do
       user_id: "9e204fff-9b48-4000-8b21-6cc88be2f01e",
       reaction_type: "fire"
     }
-    {:ok, agent_process} = ReactionsServer.ReactionsAgent.start_link(%{})
+    {:ok, agent_process} = ReactionsServer.ReactionsAgent.start_link(:reactions_agent)
     assert ReactionsServer.ReactionsAgent.get(agent_process, request_pay_load_1.content_id) == nil
 
     #add reactions

@@ -9,9 +9,10 @@ defmodule BleacherFire.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      BleacherFireWeb.Endpoint
+      BleacherFireWeb.Endpoint,
       # Starts a worker by calling: BleacherFire.Worker.start_link(arg)
       # {BleacherFire.Worker, arg},
+      {ReactionsServer.ReactionsAgent, :reactions_agent_process}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
