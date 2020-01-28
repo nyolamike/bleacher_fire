@@ -6,7 +6,7 @@ The demo application has been split into a web phoenix app and three micoservice
 The architecture is only to demostrate the SOLID principle of microservices, that is to break apart business logic into single responsiblity tasks.  
 We have the following taks to accomplish  
     1. A web interface to display data and capture user interactions (Phoenix Web App)  
-    2. A services to store in mememory user reactions to bleacher content
+    2. A services to store in mememory user reactions to bleacher content  
     3. A dashboard service to keep count/Statistics of the reactions  
     4. A user bound service to keep track of users and their reactions 
 
@@ -20,12 +20,14 @@ This coupled with data indexing also ensures atomic operations on the data
 
 
 
-# Tests
+# Tests  
 The approach was to use a test driven developement approach to guide the developement to have  
 some degree of confidence and to reason about the quality of the code but also to set a stage  
-for setting up a CI/CD in future.
-Most of the tests are for the micoservices 
----nyd todo describe how to run the tests 
+for setting up a CI/CD in future.  
+Most of the tests are for the micoservices  
+To run test for the **bleacher_server** service  
+`cd bleacher_server `
+`mix test`  
 
 
 # Folder/Directoy Structure
