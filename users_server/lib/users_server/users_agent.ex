@@ -58,4 +58,18 @@ defmodule UsersServer.UsersAgent do
     end)
   end
 
+  @doc """
+  Checks if a users has a  reaction to the content
+  """
+  def has_reaction(agent_process, user_id, content_id) do
+    Agent.get(agent_process, fn reactions ->
+        #check if this content already has a reaction here
+        if Map.has_key?(reactions, user_id ) == false do
+          false
+        else
+          content_id in reactions[user_id]
+        end 
+    end)
+  end
+
 end
