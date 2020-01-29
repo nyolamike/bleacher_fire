@@ -62,10 +62,10 @@ defmodule BleacherFireWeb.ReactionsController do
     }
   end
 
-  def details(conn,  %{"user_name" => user_id, "id" => selected_content_id} = params) do
+  def details(conn,  %{"user_name" => user_id, "id" => selected_content_id} = _params) do
     contents = get_bleacher_content()
     #get this users reactions to the content to be rendered
-    user_reactions = Enum.reduce(contents, %{}, fn {content_id, content}, acc  -> 
+    user_reactions = Enum.reduce(contents, %{}, fn {content_id, _content}, acc  -> 
         user_reacted = UsersServer.UsersAgent.has_reaction(:users_agent_process,user_id,content_id)
         Map.put(acc, content_id, user_reacted )
     end)
@@ -73,10 +73,10 @@ defmodule BleacherFireWeb.ReactionsController do
     |>render("details.html", selected_post: contents[selected_content_id],  posts: contents, reactions: user_reactions, user_id: user_id, selected_content_id: selected_content_id  )
   end
 
-  def index(conn,  %{"user_name" => user_id} = params) do
+  def index(conn,  %{"user_name" => user_id} = _params) do
     contents = get_bleacher_content()
     #get this users reactions to the content to be rendered
-    user_reactions = Enum.reduce(contents, %{}, fn {content_id, content}, acc  -> 
+    user_reactions = Enum.reduce(contents, %{}, fn {content_id, _content}, acc  -> 
         user_reacted = UsersServer.UsersAgent.has_reaction(:users_agent_process,user_id,content_id)
         Map.put(acc, content_id, user_reacted )
     end)
@@ -84,27 +84,11 @@ defmodule BleacherFireWeb.ReactionsController do
     |>render("index.html", posts: contents, reactions: user_reactions, user_id: user_id  )
   end
 
-  def index(conn, params) do
+  def index(conn, _params) do
     contents = get_bleacher_content()
-    user_reactions = Enum.reduce(contents, %{}, fn {content_id, content}, acc  -> 
+    user_reactions = Enum.reduce(contents, %{}, fn {content_id, _content}, acc  -> 
         Map.put(acc, content_id, false )
     end)
-  #get this users reactions to these posts
-    # request_pay_load = %{
-    #   type: "reaction",
-    #   action: "add",
-    #   content_id: "056af828-2efe-4631-8446-c52cabb67367",
-    #   user_id: "9e204fff-9b48-4000-8b21-6cc88be2f01e",
-    #   reaction_type: "fire"
-    # }
-    # ReactionsServer.ReactionsAgent.put(
-    #   :reactions_agent_process, 
-    #   request_pay_load.content_id, 
-    #   request_pay_load
-    # )
-    # state = ReactionsServer.ReactionsAgent.get_state(:reactions_agent_process)
-    # IO.puts("Testing this ")
-    # IO.inspect(state)
     conn
     |> put_flash(:error, "Please Sign in, to load your reactions state from the <Users Server> micro service")
     |>render("index.html", posts: contents, reactions: user_reactions, user_id: ""  )
