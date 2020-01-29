@@ -1,0 +1,4 @@
+<div class="phx-hero">
+  <h5>The Bleacher Fire Simplified Microservice Architecture</h5>
+  <img class="arc-image" src="<%= Routes.static_path(@conn, "/images/arch.png") %>" alt="micro services architectural diagram"/>
+</div>

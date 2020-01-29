@@ -37,6 +37,9 @@
               <li class="pure-menu-item">
                 <a href="/users" class='<%= menu_link_class(@conn, "/users") %>'>Users</a>
               </li>
+              <li class="pure-menu-item">
+                <a href="/arch" class='<%= menu_link_class(@conn, "/arch") %>'>Architecture</a>
+              </li>
           </ul>
       </div>
       <%= render @view_module, @view_template, assigns %>

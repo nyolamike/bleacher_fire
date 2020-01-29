@@ -325,3 +325,7 @@ footer{
   text-shadow: 4px 2px 7px black;
   border-left: 1px solid;
 }
+
+.arc-image{
+  height: 320px;
+}
