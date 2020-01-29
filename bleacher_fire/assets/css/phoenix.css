@@ -188,6 +188,8 @@ footer{
 .post-side{
   background-color: #ccccccc9;
   margin-bottom: 5px;
+  text-decoration: none !important;
+  display: block;
 }
 
 .scroll-posts{
@@ -238,4 +240,49 @@ footer{
 
 .red{
   color: red;
+}
+
+.selected-side-post{
+  color: #a94442;
+}
+
+.post-details-image{
+  width: 100%;
+}
+
+.post-details-blaze{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.post-details-text{
+  text-align: left;
+  background-color: white;
+  /* padding-top: 0; */
+  margin-top: -10px !important;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.react_button, .react_button:hover{
+  background-color: rgb(204, 204, 204) !important;
+  width: 100%;
+  background-image: unset  !important;
+  
+}
+
+.react_button:hover{
+  color: #f05423;
+  box-shadow: inset 1px 1px 7px 1px #838383;
+}
+
+.unreact_button{
+  background-color: rgba(164, 50, 48, 0.6) !important;
+    width: 100%;
+    background-image: unset !important;
+}
+
+.reaction-count-text{
+  vertical-align: super;
 }

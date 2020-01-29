@@ -8,6 +8,8 @@
     </fieldset>
   </form>
   <p>This will generate a random user id to be used for posting reactions.</p>
+  <br/><br/><br/>
+  <small class="red">you neeed an internet connection to load the images from the <b>Unsplash Image Service</b></small>
 </section>
 
 

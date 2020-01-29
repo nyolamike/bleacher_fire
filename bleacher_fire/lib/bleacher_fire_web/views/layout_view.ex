@@ -3,10 +3,11 @@ defmodule BleacherFireWeb.LayoutView do
 
   def menu_link_class(conn, path) do
     defaultClass = "pure-menu-heading pure-menu-link "
-    if path == Phoenix.Controller.current_path(conn, %{}) do
-      defaultClass <> " pure-menu-selected " 
+    current = Phoenix.Controller.current_path(conn, %{})
+    if (current =~ path and path != "/") or (path == current) do
+      defaultClass <> " pure-menu-selected "
     else
-      defaultClass
+      defaultClass  
     end
   end
 

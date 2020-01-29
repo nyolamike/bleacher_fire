@@ -2,14 +2,14 @@ defmodule BleacherFireWeb.ReactionsController do
   use BleacherFireWeb, :controller
 
   def get_bleacher_content() do
-    content_id_1 = "056af828-2efe-4631-8446-c52cabb67367"
-    content_id_2 = "04631828-2efe-4631-7642-c52cabb64631"
-    content_id_3 = "0fx56828-2efe-4631-fx56-c52cabb6fx56"
-    content_id_4 = "046ty679-2efe-4631-y679-c52cabb6y679"
-    content_id_5 = "056af825-2efe-4635-8446-c52cabb67365"
-    content_id_6 = "04631826-2efe-4636-7642-c52cabb64636"
-    content_id_7 = "0fx56827-2efe-4637-fx56-c52cabb6fx57"
-    content_id_8 = "046ty678-2efe-4638-y679-c52cabb6y678"
+    content_id_1 = "7056af828-2efe-4631-8446-c52cabb67367"
+    content_id_2 = "804631828-2efe-4631-7642-c52cabb64631"
+    content_id_3 = "40fx56828-2efe-4631-fx56-c52cabb6fx56"
+    content_id_4 = "1046ty679-2efe-4631-y679-c52cabb6y679"
+    content_id_5 = "3056af825-2efe-4635-8446-c52cabb67365"
+    content_id_6 = "504631826-2efe-4636-7642-c52cabb64636"
+    content_id_7 = "60fx56827-2efe-4637-fx56-c52cabb6fx57"
+    content_id_8 = "2046ty678-2efe-4638-y679-c52cabb6y678"
     %{
         content_id_1 => %{
             author: "Nyola Mike",
@@ -62,6 +62,17 @@ defmodule BleacherFireWeb.ReactionsController do
     }
   end
 
+  def details(conn,  %{"user_name" => user_id, "id" => selected_content_id} = params) do
+    contents = get_bleacher_content()
+    #get this users reactions to the content to be rendered
+    user_reactions = Enum.reduce(contents, %{}, fn {content_id, content}, acc  -> 
+        user_reacted = UsersServer.UsersAgent.has_reaction(:users_agent_process,user_id,content_id)
+        Map.put(acc, content_id, user_reacted )
+    end)
+    conn
+    |>render("details.html", selected_post: contents[selected_content_id],  posts: contents, reactions: user_reactions, user_id: user_id, selected_content_id: selected_content_id  )
+  end
+
   def index(conn,  %{"user_name" => user_id} = params) do
     contents = get_bleacher_content()
     #get this users reactions to the content to be rendered
@@ -98,6 +109,8 @@ defmodule BleacherFireWeb.ReactionsController do
     |> put_flash(:error, "Please Sign in, to load your reactions state from the <Users Server> micro service")
     |>render("index.html", posts: contents, reactions: user_reactions, user_id: ""  )
   end
+
+  
 
   
 end

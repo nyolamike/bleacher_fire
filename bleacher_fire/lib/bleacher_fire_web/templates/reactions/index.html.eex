@@ -7,7 +7,7 @@
   <div class="pure-g content-posts">
     <div class="pure-u-2-5 scroll-posts" >
       <%= for {content_id, content} <- @posts do %>
-        <div class="post-side">
+        <a class="post-side" href="/reactions/details/<%= content.content_id %>?user_name=<%= @user_id %>">
           <img src="<%= content.image %>" class="post-side-image">
           <div class="post-side-text">
             <%= if @reactions[content_id] == true do %>
@@ -17,7 +17,7 @@
             <%= content.text %>
           </div>
           <div class="clear-both"></div>
-        </div>
+        </a>
       <% end %>
     </div>
     <div class="pure-u-3-5 post-details-div ">
