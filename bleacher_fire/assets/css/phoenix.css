@@ -71,6 +71,7 @@ select {
   margin-bottom: 3rem;
   font-weight: 200;
   font-size: 120%;
+  margin-top: 50px;
 }
 .phx-hero p {
   margin: 0;
@@ -132,4 +133,12 @@ header nav a {
     flex-basis: unset;
     margin: unset;
   }
+}
+
+
+footer{
+  position: absolute;
+  bottom:10px;
+  right:35%;
+  color:#606c76;
 }
