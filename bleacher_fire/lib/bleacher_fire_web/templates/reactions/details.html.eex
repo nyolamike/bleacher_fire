@@ -77,12 +77,14 @@
         }
     }
 
-    function send_request(end_point,callback){
+    function send_request(end_point,callback,on_error){
         var request = new XMLHttpRequest();
         request.open("GET", end_point);
         request.onreadystatechange = function() {
             if(this.readyState === 4 && this.status === 200) {
                 callback(JSON.parse(this.responseText));
+            }else if(this.readyState === 4 && this.status === 404) {
+                on_error("API Not Found 404");
             }
         };
         request.send();
@@ -102,6 +104,9 @@
                 text = text + " , you reacted"
             }
             document.getElementById("count_display").innerHTML = text;
+        },function(error){
+            hide_loader();
+            document.getElementById("count_display").innerHTML = "<small class='red'>!!! 404 api error</small>";
         });
     }
     (function() {

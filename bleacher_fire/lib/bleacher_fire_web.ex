@@ -24,6 +24,8 @@ defmodule BleacherFireWeb do
       import Plug.Conn
       import BleacherFireWeb.Gettext
       alias BleacherFireWeb.Router.Helpers, as: Routes
+
+      import BleacherFireWeb.Utils, only: [strong_params: 2]
     end
   end
 

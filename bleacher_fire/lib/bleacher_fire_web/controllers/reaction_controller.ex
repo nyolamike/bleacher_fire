@@ -2,11 +2,18 @@
 defmodule BleacherFireWeb.ReactionController do
   use BleacherFireWeb, :controller
 
+  #get the post reaction signature
+  @create_params [:type, :action, :content_id, :user_id, :reaction_type]
   def index(conn,  %{ "action" => action} = params) when action == "add" do
-    IO.inspect(params)
+    entry = strong_params(params, @create_params)
     #we need to ask the reactions microservice to add this reaction
-    # ReactionsServer.ReactionsAgent.put(:reactions_agent_process, params.content_id, reaction)
-    json(conn, %{})
+    ReactionsServer.ReactionsAgent.put(:reactions_agent_process, entry.content_id, entry)
+    reaction = ReactionsServer.ReactionsAgent.get(:reactions_agent_process, entry.content_id)
+    #we need to tell the dashboard service that some one has reacted to increament the count
+    DashboardServer.DashboardAgent.increament(:dashboard_agent_process,entry.content_id)
+    #we need to tell the users service about this awesome event
+    UsersServer.UsersAgent.put(:users_agent_process, entry.user_id, entry.content_id)
+    json(conn, reaction)
   end
   
 end
