@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>BleacherFire + Phoenix Framework</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/pure1/pure-min.css") %>"/>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/pure1/pure.css") %>"/>
     <%= csrf_meta_tag() %>
   </head>
   <body>
@@ -25,6 +25,20 @@
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <div class="pure-menu pure-menu-horizontal">
+          <a href="/" class='<%= menu_link_class(@conn, "/") %>'>Signup</a>
+          <ul class="pure-menu-list">
+              <li class="pure-menu-item">
+                <a href="/reactions" class='<%= menu_link_class(@conn, "/reactions") %>'>Reactions</a>
+              </li>
+              <li class="pure-menu-item">
+                <a href="/dashboard" class='<%= menu_link_class(@conn, "/dashboard") %>'>Dashboard</a>
+              </li>
+              <li class="pure-menu-item">
+                <a href="/users" class='<%= menu_link_class(@conn, "/users") %>'>Users</a>
+              </li>
+          </ul>
+      </div>
       <%= render @view_module, @view_template, assigns %>
     </main>
     <footer>

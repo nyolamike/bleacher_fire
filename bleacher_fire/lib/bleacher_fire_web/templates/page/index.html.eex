@@ -1,8 +1,9 @@
+
 <section class="phx-hero">
-  <form class="pure-form" action="/" >
+  <form class="pure-form" method="Get" action="/reactions" >
     <fieldset>
-        <legend>Enter a user name</legend>
-        <input type="email" placeholder="...">
+        <legend>Enter any email for demo</legend>
+        <input type="email" required name="user_name" placeholder="... e.g dotnyo@gmail.com ">
         <button type="submit" class="pure-button pure-button-primary">Sign in</button>
     </fieldset>
   </form>

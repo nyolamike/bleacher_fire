@@ -71,7 +71,10 @@ select {
   margin-bottom: 3rem;
   font-weight: 200;
   font-size: 120%;
-  margin-top: 50px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  /* margin-top: 50px; */
+  height: 420px;
 }
 .phx-hero p {
   margin: 0;
@@ -150,4 +153,9 @@ footer{
 .pure-form input{
   width: 80%;
   background-color: white;
+}
+
+.pure-menu-selected{
+  background: #eee;
+  font-weight: bold;
 }
