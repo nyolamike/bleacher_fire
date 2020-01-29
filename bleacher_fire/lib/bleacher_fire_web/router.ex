@@ -26,5 +26,6 @@ defmodule BleacherFireWeb.Router do
     pipe_through :api
 
     get "/reaction_counts/:content_id", ReactionCountsController, :index
+    post "/reaction", ReactionController, :index
   end
 end

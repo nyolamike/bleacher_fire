@@ -6,4 +6,5 @@ defmodule BleacherFireWeb.ReactionCountsControllerTest do
     body = json_response(conn, 200)
     assert Map.has_key?(body, "reaction_count") and body["reaction_count"] == %{"fire" => 0}
   end
+  
 end
