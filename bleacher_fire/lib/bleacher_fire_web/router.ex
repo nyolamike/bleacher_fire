@@ -18,13 +18,13 @@ defmodule BleacherFireWeb.Router do
 
     get "/", PageController, :index
     get "/reactions", ReactionsController, :index
-    
+    get "/reactions/details/:id", ReactionsController, :details
   end
 
   # Other scopes may use custom stacks.
   scope "/api", BleacherFireWeb do
     pipe_through :api
 
-    get "/reaction_count/:content_id", ReactionCountController, :index
+    get "/reaction_counts/:content_id", ReactionCountsController, :index
   end
 end

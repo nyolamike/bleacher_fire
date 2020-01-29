@@ -286,3 +286,14 @@ footer{
 .reaction-count-text{
   vertical-align: super;
 }
+
+.simple-loader{
+  width: 100%;
+  color: red;
+  font-size: 14px;
+  text-align: center;
+}
+
+.hide-loader{
+  display: none;
+}
