@@ -73,7 +73,7 @@ select {
   font-size: 120%;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
-  /* margin-top: 50px; */
+  padding-top: 10px;
   height: 420px;
 }
 .phx-hero p {
@@ -158,4 +158,84 @@ footer{
 .pure-menu-selected{
   background: #eee;
   font-weight: bold;
+}
+
+.post-side-image{
+  width: 50px;
+  height: 50px;
+  float: left;
+  cursor: pointer;
+}
+
+.post-side-text{
+  padding: 2px;
+  width: 180px;
+  height: 50px;
+  float: right;
+  cursor: pointer;
+  background-color: #CCC;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.clear-both{
+  clear: both;
+}
+
+.post-side{
+  background-color: #ccccccc9;
+  margin-bottom: 5px;
+}
+
+.scroll-posts{
+  height: 300px;
+  overflow-y: auto;
+}
+
+.ka-code{
+  font-size: 12px;
+  background-color: #2f272e;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+  color: #c1c1c1;
+  text-align: left;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.post-details-div{
+  padding: 10px;
+}
+
+.page-descriptor{
+  text-align: left;
+  font-size: 14px;
+}
+
+.post-side-blaze{
+  width: 20px;
+  float: right;
+}
+
+/* .content-posts{
+  height: 420px;
+  overflow: hidden;
+} */
+
+.loggedin{
+  position: absolute;
+    top: 50px;
+    right: 40px;
+    font-size: 12px;
+    color: #941521ad;
+}
+
+.red{
+  color: red;
 }

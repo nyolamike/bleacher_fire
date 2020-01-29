@@ -26,7 +26,7 @@
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <div class="pure-menu pure-menu-horizontal">
-          <a href="/" class='<%= menu_link_class(@conn, "/") %>'>Signup</a>
+          <a href="/" class='<%= menu_link_class(@conn, "/") %>'>Sign In</a>
           <ul class="pure-menu-list">
               <li class="pure-menu-item">
                 <a href="/reactions" class='<%= menu_link_class(@conn, "/reactions") %>'>Reactions</a>

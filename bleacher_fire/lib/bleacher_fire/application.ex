@@ -12,7 +12,8 @@ defmodule BleacherFire.Application do
       BleacherFireWeb.Endpoint,
       # Starts a worker by calling: BleacherFire.Worker.start_link(arg)
       # {BleacherFire.Worker, arg},
-      {ReactionsServer.ReactionsAgent, :reactions_agent_process}
+      {ReactionsServer.ReactionsAgent, :reactions_agent_process},
+      {UsersServer.UsersAgent, :users_agent_process}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

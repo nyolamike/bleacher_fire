@@ -1,4 +1,46 @@
 
 <div class="phx-hero">
-  <h2>The Bleacher Report Reactions</h2>
+  <h5>The Bleacher Report Hard Coded Posts</h5>
+  <%= if @user_id != "" do%>
+  <div class="loggedin">Logged in as: <%= @user_id %></div>
+  <%= end %>
+  <div class="pure-g content-posts">
+    <div class="pure-u-2-5 scroll-posts" >
+      <%= for {content_id, content} <- @posts do %>
+        <div class="post-side">
+          <img src="<%= content.image %>" class="post-side-image">
+          <div class="post-side-text">
+            <%= if @reactions[content_id] == true do %>
+              <img class="post-side-blaze" src="<%= Routes.static_path(@conn, "/images/fire-icon-blazing.jpg") %>">
+            <% end %>
+            <small><%= content.author %></small> <br>
+            <%= content.text %>
+          </div>
+          <div class="clear-both"></div>
+        </div>
+      <% end %>
+    </div>
+    <div class="pure-u-3-5 post-details-div ">
+      <p class="page-descriptor">
+        Click on one of the posts to view its details <br><br><br>
+        The <code>phoenix web app </code> calls the <code>Users Micro Service</code> 
+        to check if a user has a reaction to a post, which will be rendered with a fire icon <br>
+        <%= if @user_id != "" do%>
+        <div class="ka-code">
+          #controller: BleacherFireWeb.ReactionsController <br/>
+          #action: index(conn,  %{"user_name" => user_id} = params)<br/>
+          <br/>
+          UsersServer 
+          .UsersAgent 
+          .has_reaction(:users_agent_process,user_id,content_id)
+        </div>
+        <% else %>
+          <br/>
+          <i class="red"> To see a fire icons against the posts please signin, click a post and react to it. </i>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  
+  
 </div>
