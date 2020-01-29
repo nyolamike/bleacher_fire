@@ -142,3 +142,12 @@ footer{
   right:35%;
   color:#606c76;
 }
+
+.pure-form{
+  text-align: left;
+}
+
+.pure-form input{
+  width: 80%;
+  background-color: white;
+}
