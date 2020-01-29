@@ -3,7 +3,7 @@
   <h5>The Bleacher Report Hard Coded Posts</h5>
   <%= if @user_id != "" do%>
   <div class="loggedin">Logged in as: <%= @user_id %></div>
-  <%= end %>
+  <% end %>
   <div class="pure-g content-posts">
     <div class="pure-u-2-5 scroll-posts" >
       <%= for {content_id, content} <- @posts do %>

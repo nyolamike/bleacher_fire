@@ -2,7 +2,7 @@
 defmodule BleacherFireWeb.ReactionCountsController do
   use BleacherFireWeb, :controller
 
-  def index(conn,  %{"content_id" => content_id} = params) do
+  def index(conn,  %{"content_id" => content_id} = _params) do
     #check if we have this content
     reaction = ReactionsServer.ReactionsAgent.get(:reactions_agent_process, content_id)
     if reaction != nil do

@@ -3,7 +3,7 @@
   <h5>The Bleacher Report Hard Coded Posts</h5>
   <%= if @user_id != "" do%>
   <div class="loggedin">Logged in as: <%= @user_id %></div>
-  <%= end %>
+  <% end %>
   
   <div class="pure-g content-posts">
     <div class="pure-u-2-5 scroll-posts" >
@@ -122,6 +122,10 @@
 
         //the post reaction button
         document.getElementById("react_button").onclick = function() {
+            if(user_id == null || user_id.length == 0){
+                alert("Please sign in to add/remove a reaction.");
+                return false;
+            }
             show_loader();
             var data = {
                 type: "reaction", 

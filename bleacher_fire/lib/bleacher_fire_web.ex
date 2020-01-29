@@ -25,6 +25,7 @@ defmodule BleacherFireWeb do
       import BleacherFireWeb.Gettext
       alias BleacherFireWeb.Router.Helpers, as: Routes
 
+      import BleacherFireWeb.Sample, only: [get_bleacher_content: 0]
       import BleacherFireWeb.Utils, only: [strong_params: 2]
     end
   end
