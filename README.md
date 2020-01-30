@@ -63,14 +63,14 @@ To run test for the **bleacher_server** service
     When the reactions tab is selected with out first signning in, there is an error message message that instructs you to signin.  
     Also if you are not signed in and you try to react to a post, an alert will be displayed to remind you to signin.  
 
-    ![alt text](https://github.com/nyolamike/bleacher_fire/blob/master/Screen%20Shoots/2_reactions_page_no_user.png "second bad step")
+    ![alt text](https://github.com/nyolamike/bleacher_fire/blob/master/Screen%20Shoots/2_reactions_page_no_user.png "second bad step")  
 
 **3. Go To Sign In And Then Click The Reactions Tab**  
     This is display your name in the corner.  
     Its going to load hard corded posts from the `Reactions Controller`.  
-    Your reaction status for these posts are loaded from the `users_server Microservice`.  
+    Your reaction status for these posts are loaded from the `users_server Microservice`.    
 
-    ![alt text](https://github.com/nyolamike/bleacher_fire/blob/master/Screen%20Shoots/3_reactions_page_clean.png "third  step")  
+    ![alt text](https://github.com/nyolamike/bleacher_fire/blob/master/Screen%20Shoots/3_reactions_page_clean.png "third  step")    
 
 
 
