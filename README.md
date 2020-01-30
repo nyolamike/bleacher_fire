@@ -55,22 +55,10 @@ To run test for the **bleacher_server** service
 # Sample Sytem Walk Through And Explanations In 9 steps  
 **1. Signup**  
     This page allows the user to enter an email address, which will be used as the users id in the system.  
-    There is no end point in the system for user registration so we keep the user_id on the ui untill the user reacts to a post.   
+    There is no end point in the system for user registration so we keep the user_id on the ui untill the user reacts to a post   
 
     ![alt text](https://github.com/nyolamike/bleacher_fire/blob/master/Screen%20Shoots/1_signin_page.png "first step")  
 
-**2. Viewing Bleacher Posts Without Signing in**  
-    When the reactions tab is selected with out first signning in, there is an error message message that instructs you to signin.  
-    Also if you are not signed in and you try to react to a post, an alert will be displayed to remind you to signin.  
-
-    ![alt text](https://github.com/nyolamike/bleacher_fire/blob/master/Screen%20Shoots/2_reactions_page_no_user.png "second bad step")  
-
-**3. Go To Sign In And Then Click The Reactions Tab**  
-    This is display your name in the corner.  
-    Its going to load hard corded posts from the `Reactions Controller`.  
-    Your reaction status for these posts are loaded from the `users_server Microservice`.    
-
-    ![alt text](https://github.com/nyolamike/bleacher_fire/blob/master/Screen%20Shoots/3_reactions_page_clean.png "third  step")    
 
 
 
