@@ -49,6 +49,16 @@ To run test for the **bleacher_server** service
     This is a service to truck users and their reactions, just the content id  
     To keep unique reactions, this service will first be called to check if a user  
     has already reacted to the content  
+**Screen Shoots**
+    This folder contains screen shoots of the while is production  
+
+# Sample Sytem Walk Through And Explanations In 9 steps  
+**1. Signup**  
+    This page allows the user to enter an email address, which will be used as the users id  
+    in the system.  
+    There is no end point in the system for user registration so we keep the user_id on the  
+    ui untill the user reacts to a post.  
+    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 
 
