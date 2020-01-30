@@ -57,7 +57,7 @@ To run test for the **bleacher_server** service
     This page allows the user to enter an email address, which will be used as the users id in the system.  
     There is no end point in the system for user registration so we keep the user_id on the ui untill the user reacts to a post   
 
-    ![alt text](https://github.com/nyolamike/bleacher_fire/blob/master/Screen%20Shoots/1_signin_page.png "first step")  
+    ![ScreenShot](/ScreenShoots/1_signin_page.png)  
 
 
 
