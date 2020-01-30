@@ -59,6 +59,72 @@ To run test for the **bleacher_server** service
 
     ![ScreenShot](/ScreenShoots/1_signin_page.png)  
 
+**2. Viewing Bleacher Posts Without Signing in**  
+    When the reactions tab is selected with out first signning in, there is an error message message that instructs you to signin.  
+    Also if you are not signed in and you try to react to a post, an alert will be displayed to remind you to signin
+
+    ![ScreenShot](/ScreenShoots/2_reactions_page_no_user.png) 
+
+**3. Go To Sign In And Then Click The Reactions Tab**  
+    This is display your name in the corner.  
+    Its going to load hard corded posts from the `Reactions Controller`  
+    Your reaction status for these posts are loaded from the `users_server Microservice`
+    If you previouly reacted to a post and didnot unreact then a fire icon is shown on that post  
+        
+    ![ScreenShot](/ScreenShoots/3_reactions_page_clean.png)   
+
+**4. Select One Of The Posts To Load Its Details**  
+    The number of reactions for this post are loaded via Ajax when the page loads.  
+    The end point is `/reaction_counts/:content_id`, the controller will use the `dashboard_server Microservice` for this.  
+    The `users_server Microservice` is used to indicate if you have a reaction to this post or not  
+    In case you have no reaction a react button with a fire icon is rendered.  
+    In the even that you already have a reaction, a unreact button is rendered.  
+
+    ![ScreenShot](/ScreenShoots/4_reactions_page_select_post.png)   
+
+
+**5. Click The React Button To Post A Reaction**  
+    An ajax http Json post is made to the end point `/reaction`.  
+    The `reactions_server Microservice` is passed a message to store the post in cache.
+    The `users_server Microservice` is told to register the user and his content_id reacted to if its not alredy there.    
+    The `dashboard_server Microservice` is passed a message to increament the counts of posts for this content.  
+    The react button is removed and an unreact button is rendered.  
+    When one presses the unreact button, an ajax request is sent to same end point to reverse the effects.  
+    Each time the page reloads to reconstruct the page with valid states of affairs.  
+
+    ![ScreenShot](/ScreenShoots/5_reactions_page_after_reacting.png)  
+
+
+**6. This displays statistics of data**  
+    Mainly the `dashboard_server Microservice` is used to provide reaction counts and also fill the table.  
+    The `users_server Microservice` provides data to get the number of users so far.  
+
+    ![ScreenShot](/ScreenShoots/6_dashboard.png)  
+
+
+**7. The users list and what they reacted to**  
+    The `users_server Microservice` is the main source of info for this.  
+
+    ![ScreenShot](/ScreenShoots/7_users.png) 
+
+
+ **8. The Architecture Simplified**  
+    The diagram shows a simplified breakdwon of the microservices and how they are talking to eacg other.  
+    The three microservices never talk to each other because i want to use the phoenix web app to monitor evy one.
+    And also to reduce interdepencies and cyclic references.  
+
+    ![ScreenShot](/ScreenShoots/8_architecture.png)  
+
+**9. The Unit Tests**  
+    This shows the tests that were written to ensure good code quality and follow goood practices like TDD.  
+    To run the tests one need to `cd [root of service direcrion]`, then run `$ mix tests `  
+
+    ![ScreenShot](/ScreenShoots/9_tests.png)  
+
+    
+
+
+
 
 
 
