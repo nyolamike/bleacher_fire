@@ -1,5 +1,5 @@
 <div class="phx-hero">
-  <h5>The Bleacher Report Users & Reactions</h5>
+  <h5>The Bleacher Report Users With Reactions</h5>
   <div class="dashboard-table-div more">
    <table class="pure-table pure-table-striped">
       <thead>
@@ -11,12 +11,20 @@
       </thead>
       <tbody>
         <%= for {user_id, contents} <- @users do %>
-            <%= for content_id  <- contents do %>
-                <tr >
+            <%= if length(contents) == 0 do %>
+                <tr>
                     <td><%= user_id %></td>
-                    <td><%= content_id %></td>
-                    <td><%= @posts[content_id].text %></td>
+                    <td></td>
+                    <td></td>
                 </tr>
+            <% else %>
+                <%= for content_id  <- contents do %>
+                    <tr >
+                        <td><%= user_id %></td>
+                        <td><%= content_id %></td>
+                        <td><%= @posts[content_id].text %></td>
+                    </tr>
+                <% end %>
             <% end %>
         <% end %>
       </tbody>
