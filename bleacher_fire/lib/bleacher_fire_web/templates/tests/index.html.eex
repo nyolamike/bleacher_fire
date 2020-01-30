@@ -1,0 +1,76 @@
+<div class="phx-hero">
+  <h5>Tests are mainly for "/api" controller contexts and Microservice Agents</h5>
+  <div class="dashboard-table-div more">
+   <table class="pure-table pure-table-striped">
+      <thead>
+          <tr>
+              <th>Context</th>
+              <th>Test</th>
+              <th>File</th>
+          </tr>
+      </thead>
+      <tbody>
+            <tr>
+              <td>/api</td>
+              <td>"POST /api/reaction add "</td>
+              <td>bleacher_fire/test/bleacher_fire_web/controllers/reaction_controller_test.exs</td>
+            </tr>
+            <tr>
+              <td>/api</td>
+              <td>"POST 404 /api/reaction remove  "</td>
+              <td>bleacher_fire/test/bleacher_fire_web/controllers/reaction_controller_test.exs</td>
+            </tr>
+            <tr>
+              <td>/api</td>
+              <td>"POST 200 /api/reaction remove  "</td>
+              <td>bleacher_fire/test/bleacher_fire_web/controllers/reaction_controller_test.exs</td>
+            </tr>
+            <tr>
+              <td>/api</td>
+              <td>"GET 404 on /api/reaction_counts/7056af828-2efe-4631-8446-75tdxxx-999"</td>
+              <td>bleacher_fire/test/bleacher_fire_web/controllers/reaction_counts_controller_test.exs</td>
+            </tr>
+            <tr>
+              <td>/api</td>
+              <td>"GET /api/reaction_counts/7056af828-2efe-4631-8446-75tdxxx-687"</td>
+              <td>bleacher_fire/test/bleacher_fire_web/controllers/reaction_counts_controller_test.exs</td>
+            </tr>
+            <tr>
+              <td>micro service</td>
+              <td>"Stores users reactions by content_id "</td>
+              <td>reactions_server/test/reactions_server_test.exs</td>
+            </tr>
+            <tr>
+              <td>micro service</td>
+              <td>"Deletes a users reaction of a certain content by user_id "</td>
+              <td>reactions_server/test/reactions_server_test.exs</td>
+            </tr>
+            <tr>
+              <td>micro service</td>
+              <td>"Increments count for a particular content_id "</td>
+              <td>dashboard_server/test/dashboard_server_test.exs</td>
+            </tr>
+            <tr>
+              <td>micro service</td>
+              <td>"Decremants count for a particular content_id "</td>
+              <td>dashboard_server/test/dashboard_server_test.exs</td>
+            </tr>
+            <tr>
+              <td>micro service</td>
+              <td>"Stores users content_ids of reactions "</td>
+              <td>users_server/test/users_server_test.exs</td>
+            </tr>
+            <tr>
+              <td>micro service</td>
+              <td>"Delets users reactions from registry"</td>
+              <td>users_server/test/users_server_test.exs</td>
+            </tr>
+            <tr>
+              <td>micro service</td>
+              <td>"Check if a user has a reaction to a content"</td>
+              <td>users_server/test/users_server_test.exs</td>
+            </tr>
+      </tbody>
+  </table>
+  </div>
+</div>

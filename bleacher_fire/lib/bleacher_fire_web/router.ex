@@ -22,6 +22,7 @@ defmodule BleacherFireWeb.Router do
     get "/dashboard", DashboardController, :index
     get "/users", UsersController, :index
     get "/arch", ArchController, :index
+    get "/tests", TestsController, :index
   end
 
   # Other scopes may use custom stacks.
